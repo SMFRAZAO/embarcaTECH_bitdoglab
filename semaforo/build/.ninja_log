@@ -1,5 +1,5 @@
 # ninja log v6
-33	3586	7688488154511275	build.ninja	eb04da0b5ec876e5
+33	3586	7692051852884542	build.ninja	eb04da0b5ec876e5
 21866	23465	7688480984330394	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_cxx_options/new_delete.cpp.obj	92d672f3989584b6
 7537	8955	7688480843122095	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/common/pico_util/datetime.c.obj	d788ae9244031ec1
 2917	4323	7688480794857253	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/common/pico_sync/sem.c.obj	ff0db624fca1d9c7
@@ -32,7 +32,7 @@
 13784	14595	7688480903495622	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj	6b5cdb402ef90c6e
 259	1451	7688480768282105	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj	e949a8c0f9754da
 14617	15772	7688480911826173	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj	9377459607c78f45
-100	1783	7688480768125905	CMakeFiles/semaforo.dir/semaforo.c.obj	44a12551e7ef92f2
+97	903	7690343857002249	CMakeFiles/semaforo.dir/semaforo.c.obj	44a12551e7ef92f2
 1252	2298	7688480778471828	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj	57f44699330eb3d1
 1456	2573	7688480780496346	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj	a1014c5a50fa8bbe
 21726	23726	7688480982949730	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_atomic/atomic.c.obj	c248bae208396de0
@@ -91,4 +91,4 @@
 37958	39963	7688481147044296	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj	fcd716028e72ad21
 38990	40479	7688481157776284	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj	3b84045b9f3b8382
 40007	41276	7688481167371957	CMakeFiles/semaforo.dir/C_/Users/SMurilo/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_i2c/i2c.c.obj	bfb7afaf4e8dd079
-41278	42540	7688481178404421	semaforo.elf	ace0ff5c67c92c8
+906	1933	7690343865097527	semaforo.elf	ace0ff5c67c92c8

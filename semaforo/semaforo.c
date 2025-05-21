@@ -1,9 +1,6 @@
-
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "hardware/timer.h"
-#include "hardware/i2c.h"
-#include "ssd1306.h"
 #include <stdio.h>
 
 #define LED_VERDE 11
@@ -26,13 +23,6 @@ void callback_interrupcao(uint gpio, uint32_t eventos);
 
 int main() {
     stdio_init_all();
-
-    i2c_init(i2c0, 400 * 1000);
-    gpio_set_function(4, GPIO_FUNC_I2C);
-    gpio_set_function(5, GPIO_FUNC_I2C);
-    gpio_pull_up(4);
-    gpio_pull_up(5);
-    ssd1306_init();
 
     gpio_init(LED_VERDE); gpio_set_dir(LED_VERDE, GPIO_OUT);
     gpio_init(LED_VERMELHO); gpio_set_dir(LED_VERMELHO, GPIO_OUT);
@@ -70,9 +60,6 @@ bool temporizador_callback(struct repeating_timer *t) {
                 contador = 0;
                 acender_leds(true, false, false);
                 printf("Sinal: Verde\n");
-                ssd1306_clear();
-                ssd1306_draw_string(0, 0, "Sinal: VERDE");
-                ssd1306_show();
             }
             break;
 
@@ -83,9 +70,6 @@ bool temporizador_callback(struct repeating_timer *t) {
                 contador = 0;
                 acender_leds(true, false, true);
                 printf("Sinal: Amarelo\n");
-                ssd1306_clear();
-                ssd1306_draw_string(0, 0, "Sinal: AMARELO");
-                ssd1306_show();
             }
             break;
 
@@ -96,9 +80,6 @@ bool temporizador_callback(struct repeating_timer *t) {
                 contador = 0;
                 acender_leds(false, false, true);
                 printf("Sinal: Vermelho\n");
-                ssd1306_clear();
-                ssd1306_draw_string(0, 0, "Sinal: VERMELHO");
-                ssd1306_show();
             }
             break;
     }
@@ -106,21 +87,14 @@ bool temporizador_callback(struct repeating_timer *t) {
 }
 
 void tratar_pedestre() {
-    printf("Botao de Pedestres acionado\n");
-    ssd1306_clear();
-    ssd1306_draw_string(0, 0, "AGUARDE PEDESTRE");
-    ssd1306_show();
+    printf("Pedestre solicitou travessia\n");
 
     acender_leds(true, false, true);
     sleep_ms(3000);
 
     acender_leds(false, false, true);
     for (int i = 5; i >= 1; i--) {
-        char buffer[20];
-        sprintf(buffer, "TRAVESSE: %d", i);
-        ssd1306_clear();
-        ssd1306_draw_string(0, 0, buffer);
-        ssd1306_show();
+        printf("TRAVESSE: %d\n", i);
 
         gpio_put(BUZZER, 1);
         sleep_ms(200);
@@ -145,14 +119,17 @@ void iniciar_ciclo() {
     contador = 0;
     acender_leds(false, false, true);
     printf("Sinal: Vermelho\n");
-    ssd1306_clear();
-    ssd1306_draw_string(0, 0, "Sinal: VERMELHO");
-    ssd1306_show();
 }
 
 void callback_interrupcao(uint gpio, uint32_t eventos) {
     if ((gpio == BOTAO_A || gpio == BOTAO_B) && (eventos & GPIO_IRQ_EDGE_FALL)) {
+        printf("Botão pedestres acionado\n");
+
+        // Beep sonoro curto no momento do clique
+        gpio_put(BUZZER, 1);
+        sleep_ms(100);
+        gpio_put(BUZZER, 0);
+
         botao_acionado = true;
     }
 }
-
